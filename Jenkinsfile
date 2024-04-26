@@ -6,9 +6,10 @@ pipeline {
                 git 'https://github.com/lukaszszczot/SimpleProgram.git'
             }
         }
+
         stage('Build with Maven') {
             steps {
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
 
@@ -34,7 +35,7 @@ pipeline {
 
         stage('Run program') {
             steps {
-                sh 'java -cp target/classes org.example.Main'
+                bat 'java -cp target/classes org.example.Main'
             }
         }
 
