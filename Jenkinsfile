@@ -7,40 +7,7 @@ def paramNames = ['CWUB', 'KSO', 'RA', 'RL_DOD', 'RL_PRZELICZNIKI', 'RL_RPL_ZSMO
 'RL_TL', 'RP', 'RPL_PL', 'RPM', 'RPWDL_RPF', 'RPWDL_RPFG', 'RPWDL_RPM',
 'RPWDL_RPZDL', 'RPWDL_RPZDLG', 'RPWDL_RPZLG', 'RPWDL_RPZLP', 'RPWDL_RPZPG',
 'RPWDL_RPZPP', 'RSPO', 'SC', 'SF', 'SOLR_LR', 'SOLR_RL_PODZIELNOSC', 'SOLR_RL_V2', 'SOLR_RL_ZAMIENNIKI']
-properties([
-    new ParametersDefinitionProperty([
-       new BooleanParameterDefinition("CWUB", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("KSO", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RA", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RL_DOD", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RL_PRZELICZNIKI", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RL_RPL_ZSMOPL", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RL_TL", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RP", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPL_PL", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPM", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPF", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPFG", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPM", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPZDL", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPZDLG", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPZLG", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPZLP", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPZPG", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RPWDL_RPZPP", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("RSPO", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("SC", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("SF", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("SOLR_LR", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("SOLR_RL_PODZIELNOSC", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("SOLR_RL_V2", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("SOLR_RL_ZAMIENNIKI", true, "To jest BooleanParameterDefinition"),
-        new StringParameterDefinition("text", "", 'Prosze wprowadzic opis - niewymagane'),
-        new TextParameterDefinition("textarea", "", "To jest TextParameterDefinition"),
-        new ChoiceParameterDefinition("choice", ['opcja1', 'opcja2', 'opcja3'].toArray(new String[0]), "To jest ChoiceParameterDefinition"),
-        new PasswordParameterDefinition('password', 'SECRET', 'To jest PasswordParameterDefinition')
-    ])
-])
+
 
 pipeline {
     agent any
