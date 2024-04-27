@@ -35,9 +35,8 @@ properties([
        new BooleanParameterDefinition("SOLR_RL_PODZIELNOSC", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_V2", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_ZAMIENNIKI", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("OldVersionImport", true, "To jest BooleanParameterDefinition"),
+       new BooleanParameterDefinition("IMPORT_STARSZEJ_WERSJI_REKORDU", true, "To jest BooleanParameterDefinition"),
        new StringParameterDefinition("text", "text", 'Prosze wprowadzic opis - niewymagane'),
-       new TextParameterDefinition("textarea", "textarea", "Prosze wprowadzic opis - niewymagane"),
     ])
 ])
 
@@ -86,9 +85,9 @@ pipeline {
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_PODZIELNOSC' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_V2' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_ZAMIENNIKI' ],
-                    [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, description: 'Import starszej wersji rekordu, zostanie zastosowany do każdego zaznaczonego powyżej rejestru', name: 'OldVersionImport' ],
-                    [ $class: 'hudson.model.StringParameterDefinition', defaultValue: params.text, description: 'Prosze wprowadzic opis - niewymagane', name: 'text' ],
-                    [ $class: 'hudson.model.TextParameterDefinition', defaultValue: params.textarea, description: 'Prosze wprowadzic opis - niewymagane', name: 'textarea' ]]
+                    [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, description: 'Import starszej wersji rekordu, zostanie zastosowany do kazdego zaznaczonego powyzej rejestru', name: 'IMPORT_STARSZEJ_WERSJI_REKORDU' ],
+                    [ $class: 'hudson.model.StringParameterDefinition', defaultValue: params.text, description: 'Prosze wprowadzic opis - niewymagane', name: 'text' ]
+
 
                     // Wybór zaznaczonych parametrów
                         def selected = []
@@ -99,9 +98,8 @@ pipeline {
                                              }
 
                     echo 'Zaznaczone checkboxy: ' + selected.join(',')
-                    echo "Import starszej wersji rekordu: ${userInput.OldVersionImport}"
+                    echo "Import starszej wersji rekordu: ${userInput.IMPORT_STARSZEJ_WERSJI_REKORDU}"
                     echo "Text: ${userInput.text}"
-                    echo "Textstrs: ${userInput.textarea}"
 
                 }
             }
