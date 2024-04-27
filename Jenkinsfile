@@ -55,11 +55,25 @@ pipeline {
 
                     // User input
                     def userInput = input id: 'userInput', message: 'Zatwierdź wykonanie następnego kroku', parameters: [
-                        [$class: 'hudson.model.BooleanParameterDefinition', defaultValue: params.continue, description: 'To jest BooleanParameterDefinition', name: 'continue'],
-                        [$class: 'hudson.model.StringParameterDefinition', defaultValue: params.text, description: 'To jest StringParameterDefinition', name: 'text'],
-                        [$class: 'hudson.model.TextParameterDefinition', defaultValue: params.textarea, description: 'To jest TextParameterDefinition', name: 'textarea'],
-                        [$class: 'hudson.model.ChoiceParameterDefinition', choices: params.choice, description: 'To jest ChoiceParameterDefinition', name: 'choice'],
-                        [$class: 'hudson.model.PasswordParameterDefinition', defaultValue: params.password, description: 'To jest PasswordParameterDefinition', name: 'password']
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja1'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja2'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja3'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja4'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja5'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja6'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja7'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja8'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja9'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja10'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja11'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja12'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja13'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja14'],
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja15']
+                    [$class: 'hudson.model.StringParameterDefinition', defaultValue: params.text, description: 'To jest StringParameterDefinition', name: 'text'],
+                    [$class: 'hudson.model.TextParameterDefinition', defaultValue: params.textarea, description: 'To jest TextParameterDefinition', name: 'textarea'],
+                    [$class: 'hudson.model.ChoiceParameterDefinition', choices: params.choice, description: 'To jest ChoiceParameterDefinition', name: 'choice'],
+                    [$class: 'hudson.model.PasswordParameterDefinition', defaultValue: params.password, description: 'To jest PasswordParameterDefinition', name: 'password']
                     ]
 
                     echo "Kontynuuj: ${userInput.continue}"
