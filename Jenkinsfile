@@ -98,7 +98,7 @@ pipeline {
                     // Wybór zaznaczonych parametrów
                         def selected = []
                    paramNames.each {
-                     if(params[it] == true) {
+                     if(params[it] == false) {
                        selected.push(it)
                      }
                    }
