@@ -104,12 +104,14 @@ pipeline {
                     [$class: 'hudson.model.PasswordParameterDefinition', defaultValue: params.password, description: 'To jest PasswordParameterDefinition', name: 'password']
                     ]
                     // Wybór zaznaczonych parametrów
-                    def selected = []
-                    paramNames.each {
-                      if(params[it]) {
-                        selected.push(it)
-                      }
-                    }
+                   def selected = []
+                   paramNames.each {
+                     if(params[it] == 'true') {
+                       selected.push(it)
+                     }
+                   }
+
+                   echo 'Zaznaczone checkboxy: ' + selected.join(',')
 
                     echo 'Zaznaczone checkboxy: ' + selected.join(',')
 
