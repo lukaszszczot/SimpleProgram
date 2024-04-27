@@ -1,6 +1,12 @@
 import hudson.model.*
 import hudson.model.ParametersDefinitionProperty
 
+
+// Definicja nazw parametrów
+def paramNames = ['CWUB', 'KSO', 'RA', 'RL_DOD', 'RL_PRZELICZNIKI', 'RL_RPL_ZSMOPL',
+'RL_TL', 'RP', 'RPL_PL', 'RPM', 'RPWDL_RPF', 'RPWDL_RPFG', 'RPWDL_RPM',
+'RPWDL_RPZDL', 'RPWDL_RPZDLG', 'RPWDL_RPZLG', 'RPWDL_RPZLP', 'RPWDL_RPZPG',
+'RPWDL_RPZPP', 'RSPO', 'SC', 'SF', 'SOLR_LR', 'SOLR_RL_PODZIELNOSC', 'SOLR_RL_V2', 'SOLR_RL_ZAMIENNIKI']
 properties([
     new ParametersDefinitionProperty([
         new StringParameterDefinition("SELECTED_CHECKBOX_NAMES", "", "To jest StringParameterDefinition"),
@@ -31,7 +37,6 @@ properties([
        new BooleanParameterDefinition("SOLR_RL_PODZIELNOSC", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_V2", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_ZAMIENNIKI", true, "To jest BooleanParameterDefinition"),
-
         new StringParameterDefinition("text", "", 'To jest StringParameterDefinition'),
         new TextParameterDefinition("textarea", "", "To jest TextParameterDefinition"),
         new ChoiceParameterDefinition("choice", ['opcja1', 'opcja2', 'opcja3'].toArray(new String[0]), "To jest ChoiceParameterDefinition"),
@@ -98,6 +103,15 @@ pipeline {
                     [$class: 'hudson.model.ChoiceParameterDefinition', choices: params.choice, description: 'To jest ChoiceParameterDefinition', name: 'choice'],
                     [$class: 'hudson.model.PasswordParameterDefinition', defaultValue: params.password, description: 'To jest PasswordParameterDefinition', name: 'password']
                     ]
+                    // Wybór zaznaczonych parametrów
+                    def selected = []
+                    paramNames.each {
+                      if(env[it] == 'true') {
+                        selected.push(it)
+                      }
+                    }
+
+                    echo 'Zaznaczone checkboxy: ' + selected.join(',')
 
                     echo "Kontynuuj: ${userInput.continue}"
                     echo "Tekst: ${userInput.text}"
