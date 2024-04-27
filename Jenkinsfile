@@ -35,10 +35,9 @@ properties([
        new BooleanParameterDefinition("SOLR_RL_PODZIELNOSC", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_V2", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_ZAMIENNIKI", true, "To jest BooleanParameterDefinition"),
-        new StringParameterDefinition("text", "", 'Prosze wprowadzic opis - niewymagane'),
-        new TextParameterDefinition("textarea", "", "To jest TextParameterDefinition"),
-        new ChoiceParameterDefinition("choice", ['opcja1', 'opcja2', 'opcja3'].toArray(new String[0]), "To jest ChoiceParameterDefinition"),
-        new PasswordParameterDefinition('password', 'SECRET', 'To jest PasswordParameterDefinition')
+       new BooleanParameterDefinition("OldVersionImport", true, "To jest BooleanParameterDefinition"),
+       new StringParameterDefinition("text", "text", 'Prosze wprowadzic opis - niewymagane'),
+       new TextParameterDefinition("textarea", "textarea", "Prosze wprowadzic opis - niewymagane"),
     ])
 ])
 
@@ -86,23 +85,25 @@ pipeline {
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_LR' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_PODZIELNOSC' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_V2' ],
-                    [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_ZAMIENNIKI' ]
+                    [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_ZAMIENNIKI' ],
+                    [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, description: 'Import starszej wersji rekordu, zostanie zastosowany do każdego zaznaczonego powyżej rejestru', name: 'OldVersionImport' ],                    ]
+                    [ $class: 'hudson.model.StringParameterDefinition', defaultValue: "text", name: 'text', description: 'Prosze wprowadzic opis - niewymagane'],
+                    [ $class: 'hudson.model.TextParameterDefinition', defaultValue: "textarea", name: 'textarea', description: 'Prosze wprowadzic opis - niewymagane']
                     ]
+
                     // Wybór zaznaczonych parametrów
                         def selected = []
-                   paramNames.each {
-                   if(userInput[it] == true) {
-                   selected.push(it)
-                   }
-                   }
+                            paramNames.each {
+                                 if(userInput[it] == true) {
+                                    selected.push(it)
+                                                             }
+                                             }
 
                     echo 'Zaznaczone checkboxy: ' + selected.join(',')
+                    echo "Import starszej wersji rekordu: ${userInput.OldVersionImport}"
+                    echo "Text: ${userInput.text}"
+                    echo "Textstrs: ${userInput.textarea}"
 
-                    echo "Kontynuuj: ${userInput.continue}"
-                    echo "Tekst: ${userInput.text}"
-                    echo "Textarea: ${userInput.textarea}"
-                    echo "Choice: ${userInput.choice}"
-                    echo "Hasło: ${userInput.password}"
                 }
             }
         }
