@@ -86,9 +86,9 @@ pipeline {
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_PODZIELNOSC' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_V2' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'SOLR_RL_ZAMIENNIKI' ],
-                    [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, description: 'Import starszej wersji rekordu, zostanie zastosowany do każdego zaznaczonego powyżej rejestru', name: 'OldVersionImport' ],                    ]
+                    [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, description: 'Import starszej wersji rekordu, zostanie zastosowany do każdego zaznaczonego powyżej rejestru', name: 'OldVersionImport' ],
                     [ $class: 'hudson.model.StringParameterDefinition', defaultValue: params.text, description: 'Prosze wprowadzic opis - niewymagane', name: 'text' ],
-                     [ $class: 'hudson.model.TextParameterDefinition', defaultValue: params.textarea, description: 'Prosze wprowadzic opis - niewymagane', name: 'textarea' ]]
+                    [ $class: 'hudson.model.TextParameterDefinition', defaultValue: params.textarea, description: 'Prosze wprowadzic opis - niewymagane', name: 'textarea' ]]
 
                     // Wybór zaznaczonych parametrów
                         def selected = []
