@@ -69,7 +69,7 @@ pipeline {
                     [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja12'],
                     [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja13'],
                     [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja14'],
-                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja15']
+                    [$class: BooleanParameterDefinition, defaultValue: false, description: 'To jest BooleanParameterDefinition', name: 'opcja15'],
                     [$class: 'hudson.model.StringParameterDefinition', defaultValue: params.text, description: 'To jest StringParameterDefinition', name: 'text'],
                     [$class: 'hudson.model.TextParameterDefinition', defaultValue: params.textarea, description: 'To jest TextParameterDefinition', name: 'textarea'],
                     [$class: 'hudson.model.ChoiceParameterDefinition', choices: params.choice, description: 'To jest ChoiceParameterDefinition', name: 'choice'],
