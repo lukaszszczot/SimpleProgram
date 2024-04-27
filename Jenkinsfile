@@ -91,10 +91,9 @@ pipeline {
                     // Wybór zaznaczonych parametrów
                         def selected = []
                    paramNames.each {
-
-                     if(params[it] == true) {
-                       selected.push(it)
-                     }
+                   if(userInput[it] == true) {
+                   selected.push(it)
+                   }
                    }
 
                     echo 'Zaznaczone checkboxy: ' + selected.join(',')
