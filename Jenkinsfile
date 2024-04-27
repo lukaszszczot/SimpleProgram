@@ -60,17 +60,9 @@ pipeline {
         stage('User Input') {
             steps {
                 script {
-                    // Check checkboxesó
-                    String selectedCheckboxNames = params.SELECTED_CHECKBOX_NAMES
-                    String selectedCheckbox = params.CHECKBOX_LIST
-                    if (!selectedCheckboxNames.isEmpty()) {
-                        selectedCheckboxNames += ","
-                    }
-                    selectedCheckboxNames += selectedCheckbox
-                    echo "Selected checkboxes: " + selectedCheckboxNames
 
                     // User input
-                    def userInput = input id: 'userInput', message: 'Zatwierdź wykonanie następnego kroku', parameters: [
+                    def userInput = input id: 'userInput', message: 'Prosze zaznaczyc rejestry do zaimportowania', parameters: [
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'CWUB' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'KSO' ],
                     [ $class: 'hudson.model.BooleanParameterDefinition', defaultValue: false, name: 'RA' ],
@@ -104,16 +96,12 @@ pipeline {
                     [$class: 'hudson.model.PasswordParameterDefinition', defaultValue: params.password, description: 'To jest PasswordParameterDefinition', name: 'password']
                     ]
                     // Wybór zaznaczonych parametrów
-                   def selected = []
+                        def selected = []
                    paramNames.each {
                      if(params[it] == true) {
                        selected.push(it)
                      }
                    }
-
-                   echo 'Zaznaczone checkboxy: ' + selected.join(',')
-
-                    echo 'Zaznaczone checkboxy: ' + selected.join(',')
 
                     echo 'Zaznaczone checkboxy: ' + selected.join(',')
 
