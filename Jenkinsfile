@@ -17,11 +17,11 @@ pipeline {
             steps {
                 script {
                     def userInput = input(id: 'userInput', message: 'Zatwierdź wykonanie następnego kroku', parameters: [
-                        booleanParam(defaultValue: true, description: 'Czy kontynuować?', name: 'continue'),
-                        string(defaultValue: '', description: 'Wpisz tekst', name: 'text'),
-                        text(defaultValue: '', description: 'Wprowadź dłuższy blok tekstu', name: 'textarea'),
-                        choice(choices: 'opcja1\nopcja2\nopcja3', description: 'Wybierz jedną z opcji', name: 'choice'),
-                        password(defaultValue: 'SECRET', description: 'Wprowadź hasło', name: 'password')
+                        [$class: 'hudson.model.BooleanParameterDefinition', defaultValue: true, description: 'Czy kontynuować?', name: 'continue'],
+                        [$class: 'hudson.model.StringParameterDefinition', defaultValue: '', description: 'Wpisz tekst', name: 'text'],
+                        [$class: 'hudson.model.TextParameterDefinition', defaultValue: '', description: 'Wprowadź dłuższy blok tekstu', name: 'textarea'],
+                        [$class: 'hudson.model.ChoiceParameterDefinition', choices: 'opcja1\nopcja2\nopcja3', description: 'Wybierz jedną z opcji', name: 'choice'],
+                        [$class: 'hudson.model.PasswordParameterDefinition', defaultValue: 'SECRET', description: 'Wprowadź hasło', name: 'password']
                     ])
 
                     echo "Kontynuuj: ${userInput.continue}"
