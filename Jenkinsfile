@@ -30,7 +30,7 @@ properties([
        new BooleanParameterDefinition("SOLR_LR", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_PODZIELNOSC", true, "To jest BooleanParameterDefinition"),
        new BooleanParameterDefinition("SOLR_RL_V2", true, "To jest BooleanParameterDefinition"),
-       new BooleanParameterDefinition("SOLR_RL_ZAMIENNIKI", true, "To jest BooleanParameterDefinition")
+       new BooleanParameterDefinition("SOLR_RL_ZAMIENNIKI", true, "To jest BooleanParameterDefinition"),
 
         new StringParameterDefinition("text", "", 'To jest StringParameterDefinition'),
         new TextParameterDefinition("textarea", "", "To jest TextParameterDefinition"),
